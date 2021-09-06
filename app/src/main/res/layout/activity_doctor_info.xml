@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/sign_up_background_color"
     tools:context=".DoctorInfo">
-
-    <FrameLayout
+    <!-- hello  habib 11-->
+    <!--b 1111yyyyy-->
+<FrameLayout
         android:id="@+id/lin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
