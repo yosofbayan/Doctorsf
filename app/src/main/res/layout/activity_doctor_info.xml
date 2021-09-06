@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/sign_up_background_color"
-
     tools:context=".DoctorInfo">
 
     <FrameLayout
         android:id="@+id/lin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+   <!-- Hello there -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
