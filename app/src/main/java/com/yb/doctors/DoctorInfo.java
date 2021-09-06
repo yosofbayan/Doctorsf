@@ -10,6 +10,6 @@ public class DoctorInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_info);
-        //yosof editing 
+        //yosof editing
     }
 }
