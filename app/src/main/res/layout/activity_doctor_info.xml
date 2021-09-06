@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sign_up_background_color"
+
+    tools:context=".DoctorInfo">
+
+    <FrameLayout
+        android:id="@+id/lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="الطبيب"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="end|center_vertical"
+       android:padding="8dp"
+       android:layout_marginEnd="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="رجوع "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginEnd="4dp"/>
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/icon_right"
+           android:layout_gravity="center_vertical"/>
+
+   </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lin"
+        android:background="@drawable/doctor_info_shape"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/icon_pass" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="دكتور فلان فلان "
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/arabic_ui_text_font"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="اختصاص كذا  "
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/arabic_ui_text_font"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="كركوك"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/arabic_ui_text_font" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_15sdp"
+            android:text="نشط"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:gravity="right"
+            android:text="تاريخ الاشتراك كذا : 488/488/48"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:gravity="right"
+            android:text="تاريخ الاشتراك كذا : 488/488/48"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:gravity="right"
+            android:text="الايام المتبقية كذا "
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

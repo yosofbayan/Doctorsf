@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F3FB"
+    android:layout_height="match_parent"
+    tools:context=".Regestration">
+    <TextView
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="هيا بنا نبدأ  "
+        android:gravity="center"
+        android:textSize="24sp"
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:layout_below="@id/creat_account" />
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textColor="#7F7F87"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="قم بإنشاء حساب Call Doctor للحصول على كل الميزات "
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:layout_below="@id/creat_account" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape"
+        android:drawableEnd="@drawable/user_icon"
+        android:drawablePadding="8dp"
+        android:hint="اسم المستخدم "
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:textColorHint="@color/gray_text_color"
+        android:padding="@dimen/_9sdp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape"
+        android:drawableEnd="@drawable/city_icon"
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:textColorHint="@color/gray_text_color"
+        android:drawablePadding="8dp"
+        android:hint="المدينة "
+        android:padding="@dimen/_9sdp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape"
+        android:drawableEnd="@drawable/icon_telephone"
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:textColorHint="@color/gray_text_color"
+        android:drawablePadding="8dp"
+        android:hint="رقم الهاتف "
+
+        android:padding="@dimen/_9sdp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape"
+        android:drawableEnd="@drawable/icon_pass"
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:textColorHint="@color/gray_text_color"
+        android:drawablePadding="8dp"
+        android:hint="كلمة السر "
+        android:padding="@dimen/_9sdp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape"
+        android:drawableEnd="@drawable/icon_pass"
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:textColorHint="@color/gray_text_color"
+        android:drawablePadding="8dp"
+        android:hint="تأكيد كلمة السر "
+        android:padding="@dimen/_9sdp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <TextView
+            android:textColor="@color/light_blue_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/service_privacy_policy"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+        <TextView
+            android:id="@+id/creat_account"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/arabic_ui_text_font"
+            android:text="@string/accept_policy" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:buttonTint="@color/light_blue_text"
+            android:layout_gravity="top" />
+
+    </LinearLayout>
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal"
+       android:layout_marginTop="@dimen/_16sdp"
+       android:paddingStart="48dp"
+       android:paddingEnd="48dp"
+       android:background="@drawable/sign_up_btn_shape"
+       android:textSize="20sp"
+       android:fontFamily="@font/arabic_ui_text_font"
+       android:text="@string/sign_up_btn"
+       android:textColor="@color/white"/>
+
+
+
+
+</LinearLayout>
