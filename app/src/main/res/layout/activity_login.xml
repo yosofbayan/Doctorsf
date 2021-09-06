@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4C99EE"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/text_under_logo"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:src="@drawable/img_call_doctor" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_under_logo"
+        android:gravity="center"
+        android:text="احجز طبيبك الآن "
+        android:textColor="#707070"
+        android:textSize="@dimen/_15sdp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_et_shape"
+        android:drawableLeft="@drawable/phone"
+        android:hint="رقم الهاتف "
+        android:padding="@dimen/_9sdp" />
+
+    <EditText
+
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_et_shape"
+        android:drawableLeft="@drawable/icon_pass"
+        android:hint="كلمة السر "
+        android:padding="@dimen/_9sdp" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pass"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape"
+        android:padding="@dimen/_12sdp"
+        android:text="تسجيل الدخول "
+        android:textColor="#4C99EE"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/creat_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_btn"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="ليس لديك حساب قم بفتح حسابك الآن  "
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/creat_account"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="هل نسيت كلمة المرور ؟ "
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
