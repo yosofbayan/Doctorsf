@@ -12,6 +12,6 @@ public class DoctorInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_info);
 
-        TextView textView = new TextView(this);
+        //Marwan editing
     }
 }

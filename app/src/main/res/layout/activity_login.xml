@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.github.ksoichiro.android.observablescrollview.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/login_scroll_view"
+    android:fillViewport="true"
+    tools:context=".Login">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#4C99EE"
-    tools:context=".MainActivity">
+    >
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="@dimen/_25sdp"
+      android:id="@+id/logo">
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="@dimen/_170sdp"
-        android:layout_height="@dimen/_170sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:id="@+id/temp"
+        android:layout_width="@dimen/_117sdp"
+        android:layout_height="@dimen/_117sdp"
         android:src="@drawable/logo" />
+
+
+  </RelativeLayout>
 
     <ImageView
         android:id="@+id/text_under_logo"
@@ -40,12 +53,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt"
         android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_32sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_et_shape"
-        android:drawableLeft="@drawable/phone"
+        android:drawableStart="@drawable/telephone_login"
+        android:drawablePadding="@dimen/_4sdp"
+        android:inputType="phone"
+        android:paddingEnd="@dimen/_12sdp"
         android:hint="رقم الهاتف "
-        android:padding="@dimen/_9sdp" />
+        tools:ignore="RtlSymmetry" />
 
     <EditText
 
@@ -54,12 +70,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/email"
         android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_et_shape"
-        android:drawableLeft="@drawable/icon_pass"
+        android:drawableStart="@drawable/icon_pass"
+        android:drawablePadding="@dimen/_4sdp"
         android:hint="كلمة السر "
-        android:padding="@dimen/_9sdp" />
+        android:paddingEnd="@dimen/_12sdp"
+        tools:ignore="RtlSymmetry" />
 
     <Button
         android:id="@+id/login_btn"
@@ -67,10 +85,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/pass"
         android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_btn_shape"
-        android:padding="@dimen/_12sdp"
+
         android:text="تسجيل الدخول "
         android:textColor="#4C99EE"
         android:textSize="@dimen/_15sdp"
@@ -92,7 +110,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/creat_account"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:gravity="center"
         android:text="هل نسيت كلمة المرور ؟ "
         android:textColor="#FFFFFF"
@@ -100,3 +118,4 @@
         android:textStyle="bold" />
 
 </RelativeLayout>
+</com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
