@@ -4,4 +4,12 @@
     <string name="service_privacy_policy">شرط الخدمة وسياسة الخصوصية</string>
     <string name="sign_up_btn">التسجيل</string>
     <string name="sum">المجموع</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="confirmed">مؤكد</string>
+    <string name="rejected">مرفوض</string>
+    <string name="available_now">متاح الآن</string>
+    <string name="when_close_doctor_account_alert">في حالة الإغلاق ، لا يمكن الحجز عند الطبيب *</string>
+    <string name="specialties">Specialties</string>
+    <string name="top">Top</string>
+    <string name="health_centers">Health centers</string>
 </resources>
