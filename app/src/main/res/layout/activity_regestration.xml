@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<LinearLayout
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="#F1F3FB"
@@ -15,8 +19,7 @@
         android:text="هيا بنا نبدأ  "
         android:gravity="center"
         android:textSize="24sp"
-        android:fontFamily="@font/arabic_ui_text_font"
-        android:layout_below="@id/creat_account" />
+        android:fontFamily="@font/arabic_ui_text_font"/>
 
     <TextView
         android:textStyle="bold"
@@ -27,108 +30,178 @@
         android:text="قم بإنشاء حساب Call Doctor للحصول على كل الميزات "
         android:fontFamily="@font/arabic_ui_text_font"
         android:gravity="center"
-        android:textSize="14sp"
-        android:layout_below="@id/creat_account" />
+        android:textSize="14sp" />
 
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="@dimen/_25sdp"
+       android:layout_marginTop="@dimen/_10sdp"
+       android:layout_marginEnd="@dimen/_25sdp"
+       android:background="@drawable/login_btn_shape">
     <EditText
+        android:id="@+id/registration_user_name_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_btn_shape"
-        android:drawableEnd="@drawable/user_icon"
+        android:drawableStart="@drawable/user_icon"
         android:drawablePadding="8dp"
+        android:maxLines="1"
         android:hint="اسم المستخدم "
+        android:textColor="@color/black"
         android:fontFamily="@font/arabic_ui_text_font"
         android:textColorHint="@color/gray_text_color"
+        android:layout_toStartOf="@id/close_icon_in_name_et"
         android:padding="@dimen/_9sdp" />
+
+       <ImageView
+           android:id="@+id/check_icon_in_name_et"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentEnd="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/icon_check"
+           android:layout_marginEnd="8dp"/>
+       <ImageView
+           android:id="@+id/close_icon_in_name_et"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentEnd="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/icon_close"
+           android:layout_marginEnd="8dp"/>
+   </RelativeLayout>
     <EditText
+        android:id="@+id/registration_city_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_btn_shape"
-        android:drawableEnd="@drawable/city_icon"
+        android:drawableStart="@drawable/city_icon"
         android:fontFamily="@font/arabic_ui_text_font"
         android:textColorHint="@color/gray_text_color"
+        android:textColor="@color/black"
         android:drawablePadding="8dp"
         android:hint="المدينة "
-        android:padding="@dimen/_9sdp" />
+        android:padding="@dimen/_9sdp"
+        android:maxLines="1"/>
+
     <EditText
+        android:id="@+id/registration_phone_number_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_btn_shape"
-        android:drawableEnd="@drawable/icon_telephone"
+        android:drawableStart="@drawable/icon_telephone"
         android:fontFamily="@font/arabic_ui_text_font"
         android:textColorHint="@color/gray_text_color"
+        android:textColor="@color/black"
         android:drawablePadding="8dp"
         android:hint="رقم الهاتف "
-
+        android:maxLines="1"
         android:padding="@dimen/_9sdp" />
-    <EditText
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:background="@drawable/login_btn_shape">
+    <EditText
+        android:id="@+id/registration_password_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/login_btn_shape"
-        android:drawableEnd="@drawable/icon_pass"
+        android:drawableStart="@drawable/sign_up_pass_icon"
         android:fontFamily="@font/arabic_ui_text_font"
         android:textColorHint="@color/gray_text_color"
+        android:textColor="@color/black"
         android:drawablePadding="8dp"
+        android:layout_toStartOf="@id/close_icon_in_password_et"
         android:hint="كلمة السر "
-        android:padding="@dimen/_9sdp" />
+        android:padding="@dimen/_9sdp"
+        android:maxLines="1"/>
+
+        <ImageView
+            android:id="@+id/check_icon_in_password_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_check"
+            android:layout_marginEnd="8dp"/>
+        <ImageView
+            android:id="@+id/close_icon_in_password_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_close"
+            android:layout_marginEnd="8dp"/>
+    </RelativeLayout>
     <EditText
+        android:id="@+id/registration_confirm_password_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_25sdp"
         android:background="@drawable/login_btn_shape"
-        android:drawableEnd="@drawable/icon_pass"
+        android:drawableStart="@drawable/sign_up_pass_icon"
         android:fontFamily="@font/arabic_ui_text_font"
         android:textColorHint="@color/gray_text_color"
+        android:textColor="@color/black"
         android:drawablePadding="8dp"
         android:hint="تأكيد كلمة السر "
-        android:padding="@dimen/_9sdp" />
+        android:padding="@dimen/_9sdp"
+        android:maxLines="1"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="end"
+        android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp">
 
         <TextView
-            android:textColor="@color/light_blue_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/service_privacy_policy"
-            android:fontFamily="@font/arabic_ui_text_font"/>
-        <TextView
             android:id="@+id/creat_account"
             android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/arabic_ui_text_font"
-            android:text="@string/accept_policy" />
-
-        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:fontFamily="@font/arabic_ui_text_font"
+            android:layout_toEndOf="@id/registration_cb"
+            android:text="There"
+            android:layout_marginEnd="4dp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/registration_policy_tv"
+            android:textColor="@color/light_blue_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/creat_account"
+            android:text="hello"
+            android:fontFamily="@font/arabic_ui_text_font"
+            android:layout_centerVertical="true"/>
+
+        <CheckBox
+            android:id="@+id/registration_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_alignParentStart="true"
             android:buttonTint="@color/light_blue_text"
             android:layout_gravity="top" />
 
-    </LinearLayout>
+    </RelativeLayout>
    <Button
+       android:id="@+id/registration_btn"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_gravity="center_horizontal"
@@ -145,3 +218,4 @@
 
 
 </LinearLayout>
+</ScrollView>
