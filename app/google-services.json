@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "820374405876",
+    "firebase_url": "https://call-doctor-8720d.firebaseio.com",
+    "project_id": "call-doctor-8720d",
+    "storage_bucket": "call-doctor-8720d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820374405876:android:5ebc39d9605a8080a0d4a1",
+        "android_client_info": {
+          "package_name": "com.example.doctors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820374405876-6ksn1shhipdofv3s7q31rdmmniboj52g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChennaSLuuldDcZ-V6QtTgC3jLKIAjMt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820374405876-6ksn1shhipdofv3s7q31rdmmniboj52g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "820374405876-kj5npjd1lc9n5oqa44kh2qp81lk7qh3l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.Kanka.Call-Doctor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820374405876:android:670fd97872af11f9a0d4a1",
+        "android_client_info": {
+          "package_name": "com.yb.doctors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820374405876-6ksn1shhipdofv3s7q31rdmmniboj52g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChennaSLuuldDcZ-V6QtTgC3jLKIAjMt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820374405876-6ksn1shhipdofv3s7q31rdmmniboj52g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "820374405876-kj5npjd1lc9n5oqa44kh2qp81lk7qh3l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.Kanka.Call-Doctor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

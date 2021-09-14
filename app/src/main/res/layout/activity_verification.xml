@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login_scroll_view"
+    android:fillViewport="true"
+    tools:context=".Login">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#239AF6"
+        android:gravity="center"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:id="@+id/logo">
+
+            <ImageView
+                android:id="@+id/temp"
+                android:layout_width="@dimen/_117sdp"
+                android:layout_height="@dimen/_117sdp"
+                android:src="@drawable/logo" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+
+            android:id="@+id/text_under_logo"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:src="@drawable/img_call_doctor" />
+
+        <TextView
+            android:id="@+id/txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_under_logo"
+            android:gravity="center"
+            android:text="احجز طبيبك الآن "
+            android:textColor="#404040"
+            android:textSize="@dimen/_15sdp" />
+<RelativeLayout
+    android:padding="@dimen/_15sdp"
+    android:layout_below="@id/txt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/ic_close"
+        />
+    <TextView
+        android:id="@+id/phoneTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+964936548401"
+        android:layout_below="@+id/close"
+        android:gravity="center"
+        android:textSize="@dimen/_25sdp"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/txt_under_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="أدخل كود التفعيل الذي وصلك للتو"
+        android:layout_below="@+id/phoneTxt"
+        android:gravity="center"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/white"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/otpCodeEt"
+        android:backgroundTint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Code"
+        android:gravity="center"
+        android:padding="@dimen/_12sdp"
+        android:textColorHint="@color/gray_text_color"
+        android:layout_below="@id/txt_under_phone"  />
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="01:59"
+        android:layout_below="@+id/otpCodeEt"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/_25sdp"
+        android:textColor="@color/white"/>
+    <TextView
+        android:id="@+id/resendAgain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="resend again ? "
+        android:layout_below="@+id/time"
+        android:gravity="center"
+        android:textSize="@dimen/_18sdp"
+        android:textColor="@color/white"/>
+
+
+
+
+
+</RelativeLayout>
+        <Button
+            android:id="@+id/verlog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginTop="21dp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:background="@drawable/login_btn_shape"
+
+            android:text="تأكيد "
+            android:textColor="#4C99EE"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</ScrollView>
