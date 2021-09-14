@@ -31,6 +31,8 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventList
 import java.util.concurrent.TimeUnit;
 
 public class Login extends AppCompatActivity {
+    public static final String PHONE_NUMBER = "phone_number";
+    public static final String VERIFICATION_ID = "verId";
     private EditText edtPhone, edtOTP;
     private Button generateOTPBtn;
     private ImageView logoImageView ,textUnderLogoImageView;
@@ -40,7 +42,6 @@ public class Login extends AppCompatActivity {
     // variable for our text input
     // field for phone and OTP.
     // buttons for generating OTP and verifying OTP
-    private Button verifyOTPBtn;
     // string for storing our verification ID
     private String verificationId;
     public void animate(){
@@ -100,7 +101,6 @@ public class Login extends AppCompatActivity {
         edtPhone = findViewById(R.id.login_phone_et);
         edtOTP = findViewById(R.id.login_pass);
         generateOTPBtn = findViewById(R.id.login_btn);
-        verifyOTPBtn = findViewById(R.id.verlog);
         relativeLayout =  findViewById(R.id.logo);
         textUnderLogoImageView = findViewById(R.id.text_under_logo);
 
@@ -119,25 +119,12 @@ public class Login extends AppCompatActivity {
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
                     String phone = "+963" + edtPhone.getText().toString();
+
                     sendVerificationCode(phone);
                 }
             }
         });
-        verifyOTPBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // validating if the OTP text field is empty or not.
-                if (TextUtils.isEmpty(edtOTP.getText().toString())) {
-                    // if the OTP text field is empty display
-                    // a message to user to enter OTP
-                    Toast.makeText(Login.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
-                } else {
-                    // if OTP field is not empty calling
-                    // method to verify the OTP.
-                    verifyCode(edtOTP.getText().toString());
-                }
-            }
-        });
+
 
     }
     @Override
@@ -150,27 +137,6 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void signInWithCredential(PhoneAuthCredential credential) {
-        // inside this method we are checking if
-        // the code entered is correct or not.
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // if the code is correct and the task is successful
-                            // we are sending our user to new activity.
-                            Intent i = new Intent(Login.this, MainPageActivity.class);
-                            startActivity(i);
-                            finish();
-                        } else {
-                            // if the code is not correct then we are
-                            // displaying an error message to the user.
-                            Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
     private void sendVerificationCode(String number) {
         // this method is used for getting
         // OTP on user phone number.
@@ -182,7 +148,10 @@ public class Login extends AppCompatActivity {
                         .setCallbacks(mCallBack)		 // OnVerificationStateChangedCallbacks
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
+
+
     }
+
     // callback method is called on Phone auth provider.
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
             // initializing our callbacks for on
@@ -198,7 +167,12 @@ public class Login extends AppCompatActivity {
             // contains a unique id which
             // we are storing in our string
             // which we have already created.
+            Toast.makeText(Login.this, "onCodeSent", Toast.LENGTH_SHORT).show();
             verificationId = s;
+            Intent i = new Intent(getApplicationContext(),Verification.class) ;
+            i.putExtra(PHONE_NUMBER , "+963" + edtPhone.getText().toString()) ;
+            i.putExtra(VERIFICATION_ID , verificationId) ;
+            startActivity(i);
         }
 
         // this method is called when user
@@ -220,7 +194,7 @@ public class Login extends AppCompatActivity {
                 // after setting this code
                 // to OTP edittext field we
                 // are calling our verifycode method.
-                verifyCode(code);
+           //     verifyCode(code);
             }
         }
 
@@ -234,13 +208,5 @@ public class Login extends AppCompatActivity {
     };
 
     // below method is use to verify code from Firebase.
-    private void verifyCode(String code) {
-        // below line is used for getting getting
-        // credentials from our verification id and code.
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
 
-        // after getting credential we are
-        // calling sign in method.
-        signInWithCredential(credential);
-    }
 }
