@@ -1,5 +1,6 @@
 package com.yb.doctors.adapters;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,28 +10,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yb.doctors.R;
-import com.yb.doctors.model.Doctor;
 import com.yb.doctors.model.Sector;
-
 
 import java.util.List;
 
-public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHolder> {
-    private List<Sector> sectors;
+public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> {
+    private List<String> photos;
 
-    public SectorsAdapter(List<Sector> sectors ){
-        this.sectors = sectors;
+    public PhotoAdapter(List<String> photos){
+        this.photos = photos;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         ImageView imageView;
-        TextView textView;
+
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -38,8 +36,8 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
-            imageView = itemView.findViewById(R.id.item_specialty_photo);
-            textView = itemView.findViewById(R.id.item_specialty_text);
+            imageView = itemView.findViewById(R.id.item_photo_in_top);
+
 
 
         }
@@ -54,7 +52,7 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View view = inflater.inflate(R.layout.item_specialtiy, parent, false);
+        View view = inflater.inflate(R.layout.item_photo, parent, false);
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
@@ -65,15 +63,14 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
 
-           holder.textView.setText("Dummy");
-           holder.imageView.setImageResource(R.drawable.lungs);
+        holder.imageView.setImageResource(R.drawable.photo_card1);
 
 
     }
 
     @Override
     public int getItemCount() {
-        return sectors.size();
+        return photos.size();
     }
 
 }
