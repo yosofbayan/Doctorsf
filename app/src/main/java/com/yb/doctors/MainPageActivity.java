@@ -11,12 +11,15 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.navigation.NavigationView;
 import com.yb.doctors.adapters.HealthCentersAdapter;
 import com.yb.doctors.adapters.PhotoAdapter;
 import com.yb.doctors.adapters.SectorsAdapter;
@@ -50,6 +53,7 @@ public class MainPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.drawer_layout);
         initializeVariables();
         setPhotoAdapter();
@@ -57,8 +61,6 @@ public class MainPageActivity extends AppCompatActivity {
         setTopsAdapter();
         setHealthCentersAdapter();
         setOnClickListeners();
-
-
     }
 
     public void initializeVariables(){
@@ -82,9 +84,83 @@ public class MainPageActivity extends AppCompatActivity {
                 else drawerLayout.closeDrawer(Gravity.END);
             }
         });
+       LinearLayout profile , medicalFile , favourite , healthCenters , doctor , settings , about ,report, logout;
+
+       NavigationView navigationView = findViewById(R.id.nav_view);
+       View header = navigationView.getHeaderView(0);
+
+       ImageView userPhoto = header.findViewById(R.id.nav_header_user_photo);
+       TextView userName = header.findViewById(R.id.nav_header_name);
+       profile = header.findViewById(R.id.nav_view_profile);
+       medicalFile = header.findViewById(R.id.nav_view_medical_file);
+       favourite = header.findViewById(R.id.nav_view_favourite);
+       healthCenters = header.findViewById(R.id.nav_view_health_centers);
+       doctor = header.findViewById(R.id.nav_view_doctor);
+       settings = header.findViewById(R.id.nav_view_settings);
+       about = header.findViewById(R.id.nav_view_about);
+       report = header.findViewById(R.id.nav_view_report);
+       logout = header.findViewById(R.id.nav_view_logout);
+
+       profile.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+       medicalFile.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+
+       favourite.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+
+           }
+       });
+       healthCenters.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+       doctor.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+       settings.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+       about.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+       report.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+       logout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+           }
+       });
+
    }
 
-    public void setPhotoAdapter(){
+    private  void setPhotoAdapter(){
 
         //Temp Data
         photos= new ArrayList();
@@ -209,7 +285,7 @@ public class MainPageActivity extends AppCompatActivity {
 
     }
 
-   private void setHealthCentersAdapter(){
+    private void setHealthCentersAdapter(){
 
 
        //Temp Data
