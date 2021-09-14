@@ -258,7 +258,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:text="@string/log_out"
-            android:textColor="@color/light_blue_text"
+            android:textColor="@color/light_blue"
             android:textSize="18sp"
             android:fontFamily="@font/arabic_ui_text_font"/>
 

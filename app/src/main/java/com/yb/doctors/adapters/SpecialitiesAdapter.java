@@ -7,18 +7,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.yb.doctors.R;
 import com.yb.doctors.model.Sector;
 
-
 import java.util.List;
 
-public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHolder> {
+
+
+public class SpecialitiesAdapter extends RecyclerView.Adapter<SpecialitiesAdapter.ViewHolder> {
     private List<Sector> sectors;
 
-    public SectorsAdapter(List<Sector> sectors ){
+    public SpecialitiesAdapter(List<Sector> sectors ){
         this.sectors = sectors;
     }
 
@@ -50,7 +53,7 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View view = inflater.inflate(R.layout.item_specialty, parent, false);
+        View view = inflater.inflate(R.layout.item_specialty2, parent, false);
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
@@ -61,8 +64,8 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
 
-           holder.textView.setText("Dummy");
-           holder.imageView.setImageResource(R.drawable.lungs);
+        holder.textView.setText("Dummy");
+        holder.imageView.setImageResource(R.drawable.lungs);
 
 
     }

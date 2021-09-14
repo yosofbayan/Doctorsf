@@ -11,6 +11,9 @@
     </style>
 
     <style name="RegistrationTheme" parent="Theme.Doctors">
-        <item name="colorAccent">@color/light_blue_text</item>
+        <item name="colorAccent">@color/light_blue</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
 </resources>
