@@ -4,7 +4,7 @@
     <string name="service_privacy_policy">شرط الخدمة وسياسة الخصوصية</string>
     <string name="sign_up_btn">التسجيل</string>
     <string name="sum">المجموع</string>
-    <string name="log_out">تسجيل الخروج</string>
+    <string name="log_out">Log out</string>
     <string name="confirmed">مؤكد</string>
     <string name="rejected">مرفوض</string>
     <string name="available_now">متاح الآن</string>
@@ -12,4 +12,13 @@
     <string name="specialties">Specialties</string>
     <string name="top">Top</string>
     <string name="health_centers">Health centers</string>
+    <string name="profile">Profile</string>
+    <string name="my_medical_file">My medical file</string>
+    <string name="favourite">Favourites</string>
+    <string name="doctor">Doctor</string>
+    <string name="settings">Settings</string>
+    <string name="report">Report</string>
+    <string name="about">About</string>
+    <string name="back">back</string>
+    <string name="favourites">Favourites</string>
 </resources>

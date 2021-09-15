@@ -182,7 +182,7 @@
             android:layout_centerVertical="true"/>
         <TextView
             android:id="@+id/registration_policy_tv"
-            android:textColor="@color/light_blue_text"
+            android:textColor="@color/light_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/creat_account"
@@ -196,7 +196,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_alignParentStart="true"
-            android:buttonTint="@color/light_blue_text"
+            android:buttonTint="@color/light_blue"
             android:layout_gravity="top" />
 
     </RelativeLayout>

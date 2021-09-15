@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/shadow_for_photo"
      android:paddingVertical="24dp"
-    android:paddingHorizontal="32dp"
+     android:paddingHorizontal="32dp"
      android:layout_marginEnd="16dp">
 
 <LinearLayout

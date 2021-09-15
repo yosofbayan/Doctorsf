@@ -8,21 +8,19 @@
     tools:context=".Login">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#239AF6"
-    android:gravity="center"
-    >
+    android:layout_height="wrap_content"
+    android:background="#239AF6">
   <RelativeLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_centerHorizontal="true"
-      android:layout_marginTop="@dimen/_25sdp"
+      android:layout_marginTop="@dimen/_48sdp"
       android:id="@+id/logo">
 
     <ImageView
         android:id="@+id/temp"
-        android:layout_width="@dimen/_117sdp"
-        android:layout_height="@dimen/_117sdp"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_130sdp"
         android:src="@drawable/logo" />
 
 
@@ -39,6 +37,7 @@
         android:id="@+id/txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_below="@id/text_under_logo"
         android:gravity="center"
         android:text="احجز طبيبك الآن "
@@ -48,7 +47,7 @@
   <RelativeLayout
       android:id="@+id/revEt"
       android:layout_marginLeft="@dimen/_25sdp"
-      android:layout_marginTop="@dimen/_32sdp"
+      android:layout_marginTop="@dimen/_48sdp"
       android:layout_marginRight="@dimen/_25sdp"
       android:layout_below="@+id/txt"
       android:layout_width="match_parent"
@@ -59,10 +58,11 @@
         android:gravity="center"
         android:hint="رقم الهاتف "
         android:id="@+id/login_phone_et"
-        android:layout_marginLeft="-1dp"
-        android:layout_toRightOf="@+id/username_icon"
+        android:layout_marginStart="-1dp"
+        android:layout_toEndOf="@+id/username_icon"
         android:background="@android:color/transparent"
         android:padding="10dp"
+        android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <!-- ICON -->

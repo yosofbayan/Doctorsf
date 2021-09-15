@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@drawable/shadow_for_photo"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
+
+    android:layout_marginBottom="16dp">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/item_top_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor Mohammad Al Ahmad "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/arabic_ui_text_font"/>
+        <TextView
+            android:id="@+id/item_top_speciality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Doctor Mohammad Al Ahmad"
+            android:textSize="16sp"
+            android:textColor="@color/gray_text_color"
+            android:fontFamily="@font/arabic_ui_text_font" />
+
+    </LinearLayout>
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_top_doctor_photo"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="100dp"
+        android:src="@drawable/sign_up_btn_shape"
+        app:riv_corner_radius="32dp"/>
+
+</LinearLayout>

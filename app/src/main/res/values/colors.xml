@@ -9,5 +9,5 @@
     <color name="white">#FFFFFF</color>
     <color name="sign_up_background_color">#F1F3FB</color>
     <color name="gray_text_color">#7F7F87</color>
-    <color name="light_blue_text">#4C99EE</color>
+    <color name="light_blue">#4C99EE</color>
 </resources>
