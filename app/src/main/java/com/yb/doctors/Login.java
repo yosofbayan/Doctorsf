@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.yb.doctors.R;
+import com.yb.doctors.Verification;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
@@ -69,7 +71,7 @@ public class Login extends AppCompatActivity {
 
 
                             });
-                            anim.setDuration(500);
+                            anim.setDuration(1000);
                             anim.start();
                         }else{
 
@@ -169,7 +171,7 @@ public class Login extends AppCompatActivity {
             // which we have already created.
             Toast.makeText(Login.this, "onCodeSent", Toast.LENGTH_SHORT).show();
             verificationId = s;
-            Intent i = new Intent(getApplicationContext(),Verification.class) ;
+            Intent i = new Intent(getApplicationContext(), Verification.class) ;
             i.putExtra(PHONE_NUMBER , "+963" + edtPhone.getText().toString()) ;
             i.putExtra(VERIFICATION_ID , verificationId) ;
             startActivity(i);

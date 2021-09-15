@@ -49,7 +49,6 @@ public class RecyclerViewMargin extends RecyclerView.ItemDecoration {
 
         //set bottom margin to all
         outRect.bottom = dpToPx(margin/2);
-
     }
     private int  dpToPx(int dp){
 
