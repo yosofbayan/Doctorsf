@@ -9,25 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 import com.yb.doctors.R;
 import com.yb.doctors.model.Sector;
-
-
 import java.util.List;
-
 public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHolder> {
-    private List<Sector> sectors;
-
-    public SectorsAdapter(List<Sector> sectors ){
+    private List sectors;
+    public SectorsAdapter(List sectors){
         this.sectors = sectors;
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         ImageView imageView;
         TextView textView;
-
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
@@ -45,10 +41,7 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-
-
         LayoutInflater inflater = LayoutInflater.from(context);
-
         // Inflate the custom layout
         View view = inflater.inflate(R.layout.item_specialty, parent, false);
         // Return a new holder instance
@@ -59,14 +52,13 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-
-
            holder.textView.setText("Dummy");
-           holder.imageView.setImageResource(R.drawable.lungs);
-
-
-    }
-
+        //   holder.imageView.setImageResource(R.drawable.lungs);
+        Picasso.get()
+                .load(sectors.get(position).toString())
+                .resize(100, 100)
+                .centerCrop()
+                .into(holder.imageView)  ;  }
     @Override
     public int getItemCount() {
         return sectors.size();
