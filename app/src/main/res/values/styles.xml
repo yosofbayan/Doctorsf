@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Doctors" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/teal_200</item>
+        <item name="android:colorEdgeEffect">@color/white</item>
+
+    </style>
+
+    <style name="RegistrationTheme" parent="Theme.Doctors">
+        <item name="colorAccent">@color/light_blue</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+</resources>

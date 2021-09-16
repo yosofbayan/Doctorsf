@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue"
+    tools:context=".SpecialtiesActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/specialties"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/arabic_ui_text_font"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+    <LinearLayout
+        android:id="@+id/specialties_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_right_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/back"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/arabic_ui_text_font"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
+ <FrameLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_below="@id/specialties_back"
+     android:layout_marginHorizontal="16dp"
+     android:layout_marginBottom="16dp"
+     android:paddingHorizontal="8dp"
+     android:paddingVertical="16dp"
+     android:background="@drawable/background_white_shape">
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/specialties_recycler_view"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:clipToPadding="false"
+       android:paddingHorizontal="16dp"
+       android:paddingTop="16dp"/>
+
+ </FrameLayout>
+</RelativeLayout>
