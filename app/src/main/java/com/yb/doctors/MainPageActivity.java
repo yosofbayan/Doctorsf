@@ -56,24 +56,6 @@ public class MainPageActivity extends AppCompatActivity {
     StorageReference root;
 
 
-     /*private void collectPhoneNumbers(Map<String,Object> users) {
-
-        ArrayList<String> phoneNumbers = new ArrayList<>();
-
-        //iterate through each user, ignoring their UID
-        for (Map.Entry<String, Object> entry : users.entrySet()){
-
-            //Get user map
-            Map singleUser = (Map) entry.getValue();
-            //Get phone field and append to list
-            phoneNumbers.add(singleUser.get("Name_AR").toString());
-        }
-
-        System.out.println("HI   " +phoneNumbers.toString());
-    }*/
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,21 +68,6 @@ public class MainPageActivity extends AppCompatActivity {
         setHealthCentersAdapter();
         setOnClickListeners();
 
-            /*private void collectPhoneNumbers(Map<String,Object> users) {
-
-        ArrayList<String> phoneNumbers = new ArrayList<>();
-
-        //iterate through each user, ignoring their UID
-        for (Map.Entry<String, Object> entry : users.entrySet()){
-
-            //Get user map
-            Map singleUser = (Map) entry.getValue();
-            //Get phone field and append to list
-            phoneNumbers.add(singleUser.get("Name_AR").toString());
-        }
-
-        System.out.println("HI   " +phoneNumbers.toString());
-    }*/
 
     }
 
