@@ -30,6 +30,17 @@ import com.yb.doctors.model.Sector;
 import androidx.drawerlayout.widget.DrawerLayout;
 import java.util.ArrayList;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageReference;
+
+
 
 public class MainPageActivity extends AppCompatActivity {
 
@@ -48,6 +59,26 @@ public class MainPageActivity extends AppCompatActivity {
     private TopsAdapter topsAdapter;
     private HealthCentersAdapter healthCentersAdapter;
     private DrawerLayout drawerLayout;
+    ArrayList<String> imagelist;
+    StorageReference root;
+
+
+     /*private void collectPhoneNumbers(Map<String,Object> users) {
+
+        ArrayList<String> phoneNumbers = new ArrayList<>();
+
+        //iterate through each user, ignoring their UID
+        for (Map.Entry<String, Object> entry : users.entrySet()){
+
+            //Get user map
+            Map singleUser = (Map) entry.getValue();
+            //Get phone field and append to list
+            phoneNumbers.add(singleUser.get("Name_AR").toString());
+        }
+
+        System.out.println("HI   " +phoneNumbers.toString());
+    }*/
+
 
 
     @Override
@@ -61,6 +92,23 @@ public class MainPageActivity extends AppCompatActivity {
         setTopsAdapter();
         setHealthCentersAdapter();
         setOnClickListeners();
+
+            /*private void collectPhoneNumbers(Map<String,Object> users) {
+
+        ArrayList<String> phoneNumbers = new ArrayList<>();
+
+        //iterate through each user, ignoring their UID
+        for (Map.Entry<String, Object> entry : users.entrySet()){
+
+            //Get user map
+            Map singleUser = (Map) entry.getValue();
+            //Get phone field and append to list
+            phoneNumbers.add(singleUser.get("Name_AR").toString());
+        }
+
+        System.out.println("HI   " +phoneNumbers.toString());
+    }*/
+
     }
 
     public void initializeVariables(){
