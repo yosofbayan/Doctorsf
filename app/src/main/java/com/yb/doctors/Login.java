@@ -21,7 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-
+import com.yb.doctors.R;
+import com.yb.doctors.Verification;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
@@ -30,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Login extends AppCompatActivity {
     public static final String PHONE_NUMBER = "phone_number";
-    public static final String VERIFICATION_ID = "verId";
+    public static String VERIFICATION_ID = "verId";
     private EditText edtPhone, edtOTP;
     private Button generateOTPBtn;
     private ImageView logoImageView ,textUnderLogoImageView;
@@ -167,11 +168,10 @@ public class Login extends AppCompatActivity {
             // we are storing in our string
             // which we have already created.
             Toast.makeText(Login.this, "onCodeSent", Toast.LENGTH_SHORT).show();
-            verificationId = s;
-            Intent i = new Intent(getApplicationContext(), Verification.class) ;
-            i.putExtra(PHONE_NUMBER , "+963" + edtPhone.getText().toString()) ;
-            i.putExtra(VERIFICATION_ID , verificationId) ;
-            startActivity(i);
+
+            VERIFICATION_ID = s;
+
+
         }
 
         // this method is called when user

@@ -24,11 +24,11 @@ public class SpecialtiesActivity extends AppCompatActivity {
 
 
     private void setSpecialtiesAdapter(){
-        //Temp Data
+       /* //Temp Data
         ArrayList<Sector> specialties = new ArrayList<>();
 
         for(int i=0 ; i < 16 ; i++)
-            specialties.add(new Sector());
+       //     specialties.add(new Sector());
 
         SpecialitiesAdapter specialitiesAdapter=new SpecialitiesAdapter(specialties);
 
