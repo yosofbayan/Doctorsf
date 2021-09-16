@@ -11,15 +11,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
@@ -124,9 +121,6 @@ public class Login extends AppCompatActivity {
                     String phone = "+963" + edtPhone.getText().toString();
 
                     sendVerificationCode(phone);
-                    Intent i = new Intent(getApplicationContext(),Verification.class) ;
-                    i.putExtra(PHONE_NUMBER , "+963" + edtPhone.getText().toString()) ;
-                    startActivity(i);
                 }
             }
         });

@@ -43,7 +43,10 @@ public class SectorsAdapter extends RecyclerView.Adapter<SectorsAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
+
+
         LayoutInflater inflater = LayoutInflater.from(context);
+
         // Inflate the custom layout
         View view = inflater.inflate(R.layout.item_specialty, parent, false);
         // Return a new holder instance

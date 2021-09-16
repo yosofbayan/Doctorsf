@@ -1,9 +1,35 @@
 package com.yb.doctors;
 
+
+
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.Gravity;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.navigation.NavigationView;
+import com.yb.doctors.adapters.HealthCentersAdapter;
+import com.yb.doctors.adapters.PhotoAdapter;
+import com.yb.doctors.adapters.SectorsAdapter;
+import com.yb.doctors.adapters.TopsAdapter;
+import com.yb.doctors.model.Doctor;
+import com.yb.doctors.model.FourHealthCenterObjects;
+import com.yb.doctors.model.Sector;
+import androidx.drawerlayout.widget.DrawerLayout;
+import java.util.ArrayList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +46,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.yb.doctors.adapters.SectorsAdapter;
 import com.yb.doctors.model.Sector;
+
+import com.google.firebase.storage.StorageReference;
+
 
 
 
@@ -133,7 +162,7 @@ public class MainPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
-
+    
         init();
         getSectorsDataFromFirebase();
         initializeVariables();
@@ -312,7 +341,27 @@ public class MainPageActivity extends AppCompatActivity {
        animator.setInterpolator(interpolator);
        animator.setDuration(duration);
         animator.start();
-    }
+
+    private Runnable sliderRunnable = new Runnable() {
+        @Override
+        public void run() {
+
+            if (photoAdapter.getItemCount()-1 == page) {
+                 forward = -1;
+            } else if (page == 0) {
+                forward = 1;
+            }
+
+
+            setCurrentIem(page-1,page,1000,viewPager2.getWidth());
+            sliderHandler.postDelayed(this, 4000);
+        }
+    };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sliderHandler.removeCallbacks(sliderRunnable);
 
     }
 
