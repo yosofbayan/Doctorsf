@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.yb.doctors.adapters.SectorsAdapter;
 import com.yb.doctors.model.Sector;
 
-<<<<<<< app/src/main/java/com/yb/doctors/MainPageActivity.java
+
 
 public class MainPageActivity extends AppCompatActivity {
 
