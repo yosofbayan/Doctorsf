@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
+import java.util.List;
+import java.util.Map;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -19,14 +21,28 @@ import com.google.firebase.database.ValueEventListener;
 import com.yb.doctors.adapters.SectorsAdapter;
 import com.yb.doctors.model.Sector;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+<<<<<<< app/src/main/java/com/yb/doctors/MainPageActivity.java
 
 public class MainPageActivity extends AppCompatActivity {
-    List <Sector> sectors ;
-    RecyclerView recyclerView ;
-    SectorsAdapter sectorsAdapter ;
+
+    private RecyclerView specialtiesRecyclerView,topRecyclerView;
+    private final Handler sliderHandler = new Handler();
+    private ViewPager2 viewPager2,centersViewPagers2;
+    private int page;
+    int forward = 1;
+    private ImageView menuImageView , indexImageView ;
+    private ArrayList<Sector> sectors ;
+    private ArrayList<String> photos;
+    private ArrayList<Doctor> doctors;
+    private ArrayList<FourHealthCenterObjects> fourHealthCenterObjectsList;
+    private SectorsAdapter sectorsAdapter;
+    private PhotoAdapter photoAdapter;
+    private TopsAdapter topsAdapter;
+    private HealthCentersAdapter healthCentersAdapter;
+    private DrawerLayout drawerLayout;
+    ArrayList<String> imagelist;
+    StorageReference root;
+
     public void getHome_aDataFromFirebase () {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Home").child("Home_A").child("region_1");
         ref.addListenerForSingleValueEvent(
@@ -52,8 +68,8 @@ public class MainPageActivity extends AppCompatActivity {
             //Get sector map
             Map<String,String> sector = (Map<String, String>) entry.getValue();
 
-
         }
+
 
     }
 
@@ -116,52 +132,17 @@ public class MainPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.drawer_layout);
+
         init();
         getSectorsDataFromFirebase();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        initializeVariables();
+        setPhotoAdapter();
+        setSectorsAdapter();
+        setTopsAdapter();
+        setHealthCentersAdapter();
+        setOnClickListeners();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }

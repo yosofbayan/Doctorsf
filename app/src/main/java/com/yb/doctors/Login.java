@@ -107,6 +107,7 @@ public class Login extends AppCompatActivity {
         textUnderLogoImageView = findViewById(R.id.text_under_logo);
 
     }
+
     public void setListeners (){
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
