@@ -54,13 +54,13 @@ import com.google.firebase.storage.StorageReference;
 
 public class MainPageActivity extends AppCompatActivity {
 
-    private RecyclerView specialtiesRecyclerView,topRecyclerView;
+    private RecyclerView specialtiesRecyclerView, topRecyclerView;
     private final Handler sliderHandler = new Handler();
-    private ViewPager2 viewPager2,centersViewPagers2;
+    private ViewPager2 viewPager2, centersViewPagers2;
     private int page;
     int forward = 1;
-    private ImageView menuImageView , indexImageView ;
-    private ArrayList<Sector> sectors ;
+    private ImageView menuImageView, indexImageView;
+    private ArrayList<Sector> sectors;
     private ArrayList<String> photos;
     private ArrayList<Doctor> doctors;
     private ArrayList<FourHealthCenterObjects> fourHealthCenterObjectsList;
@@ -72,14 +72,14 @@ public class MainPageActivity extends AppCompatActivity {
     ArrayList<String> imagelist;
     StorageReference root;
 
-    public void getHome_aDataFromFirebase () {
+    public void getHome_aDataFromFirebase() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Home").child("Home_A").child("region_1");
         ref.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of sectors in datasnapshot
-                        getHome_aDataFromMap((Map<String,Object>) dataSnapshot.getValue());
+                        getHome_aDataFromMap((Map<String, Object>) dataSnapshot.getValue());
                     }
 
                     @Override
@@ -89,47 +89,49 @@ public class MainPageActivity extends AppCompatActivity {
                 });
         ref.keepSynced(true);
     }
-    private void getHome_aDataFromMap (Map<String,Object> sectors) {
+
+    private void getHome_aDataFromMap(Map<String, Object> sectors) {
         int i = 0;
         ArrayList<String> phoneNumbers = new ArrayList<>();
         //iterate through each sector, ignoring their UID
-        for (Map.Entry<String, Object> entry : sectors.entrySet()){
+        for (Map.Entry<String, Object> entry : sectors.entrySet()) {
             //Get sector map
-            Map<String,String> sector = (Map<String, String>) entry.getValue();
+            Map<String, String> sector = (Map<String, String>) entry.getValue();
 
         }
 
 
     }
 
-    private void getSectorsDataFromMap (Map<String,Object> sectors) {
+    private void getSectorsDataFromMap(Map<String, Object> sectors) {
         this.sectors.clear();
         int i = 0;
-        Log.d("SECTORSINFO" , "SECTORS INFORMATIONS ") ;
+        Log.d("SECTORSINFO", "SECTORS INFORMATIONS ");
         ArrayList<String> phoneNumbers = new ArrayList<>();
         //iterate through each sector, ignoring their UID
-        for (Map.Entry<String, Object> entry : sectors.entrySet()){
+        for (Map.Entry<String, Object> entry : sectors.entrySet()) {
             //Get sector map
-            Map<String,String> sector = (Map<String, String>) entry.getValue();
+            Map<String, String> sector = (Map<String, String>) entry.getValue();
             Sector s = new Sector(sector.get("Name_AR")
-            ,sector.get("Name_EN") ,sector.get("Name_KU")
-            ,sector.get("Name_TR"),entry.getKey(),sector.get("key_code")
-            ,sector.get("number")) ;
-            this.sectors.add(s) ;
-            Log.d("SECTOR "+i+" INFO : " ,
-            "name Ar : " + s.getNameAr()
-            + "\nname En : " + s.getNameEn()
-            +"\nname Ku : " + s.getNameKu()
-            +"\nname Tr : " + s.getNameTr()
-            +"\nimage key : "+s.getImageKey()
-            +"\nkey code : "+s.getKeyCode()
-            +"\nnumber : " + s.getNumber()) ;
+                    , sector.get("Name_EN"), sector.get("Name_KU")
+                    , sector.get("Name_TR"), entry.getKey(), sector.get("key_code")
+                    , sector.get("number"));
+            this.sectors.add(s);
+            Log.d("SECTOR " + i + " INFO : ",
+                    "name Ar : " + s.getNameAr()
+                            + "\nname En : " + s.getNameEn()
+                            + "\nname Ku : " + s.getNameKu()
+                            + "\nname Tr : " + s.getNameTr()
+                            + "\nimage key : " + s.getImageKey()
+                            + "\nkey code : " + s.getKeyCode()
+                            + "\nnumber : " + s.getNumber());
 
         }
 
-        System.out.println("HI   " +sectors.toString());
+        System.out.println("HI   " + sectors.toString());
     }
-    public void getSectorsDataFromFirebase () {
+
+    public void getSectorsDataFromFirebase() {
         //Get datasnapshot at your "sectors" root node
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Home").child("specialties");
         ref.addListenerForSingleValueEvent(
@@ -137,7 +139,7 @@ public class MainPageActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of sectors in datasnapshot
-                        getSectorsDataFromMap((Map<String,Object>) dataSnapshot.getValue());
+                        getSectorsDataFromMap((Map<String, Object>) dataSnapshot.getValue());
                         sectorsAdapter.notifyDataSetChanged();
                     }
 
@@ -146,28 +148,30 @@ public class MainPageActivity extends AppCompatActivity {
                         //handle databaseError
                     }
                 });
-                ref.keepSynced(true);
+        ref.keepSynced(true);
 
 
     }
-    public void init () {
-        sectors = new ArrayList<>() ;
-        recyclerView = findViewById(R.id.main_page_specialties_recycler_view);
-        sectorsAdapter =new SectorsAdapter(sectors);
-        recyclerView.setAdapter(sectorsAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainPageActivity.this,RecyclerView.HORIZONTAL,false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+
+    public void init() {
+        sectors = new ArrayList<>();
+        specialtiesRecyclerView = findViewById(R.id.main_page_specialties_recycler_view);
+        sectorsAdapter = new SectorsAdapter(sectors);
+        specialtiesRecyclerView.setAdapter(sectorsAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainPageActivity.this, RecyclerView.HORIZONTAL, false);
+        specialtiesRecyclerView.setLayoutManager(linearLayoutManager);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
-    
+        initializeVariables();
         init();
         getSectorsDataFromFirebase();
-        initializeVariables();
+        getHome_aDataFromFirebase();
         setPhotoAdapter();
-        setSectorsAdapter();
+       // setSectorsAdapter();
         setTopsAdapter();
         setHealthCentersAdapter();
         setOnClickListeners();
@@ -175,7 +179,7 @@ public class MainPageActivity extends AppCompatActivity {
 
     }
 
-    public void initializeVariables(){
+    public void initializeVariables() {
         menuImageView = findViewById(R.id.main_page_menu);
         indexImageView = findViewById(R.id.main_page_index);
         viewPager2 = findViewById(R.id.main_page_view_pager);
@@ -186,101 +190,102 @@ public class MainPageActivity extends AppCompatActivity {
 
     }
 
-   private void setOnClickListeners(){
+    private void setOnClickListeners() {
 
         menuImageView.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
-                if (!drawerLayout.isDrawerOpen(Gravity.START)) drawerLayout.openDrawer(Gravity.START);
+                if (!drawerLayout.isDrawerOpen(Gravity.START))
+                    drawerLayout.openDrawer(Gravity.START);
                 else drawerLayout.closeDrawer(Gravity.END);
             }
         });
-       LinearLayout profile , medicalFile , favourite , healthCenters , doctor , settings , about ,report, logout;
+        LinearLayout profile, medicalFile, favourite, healthCenters, doctor, settings, about, report, logout;
 
-       NavigationView navigationView = findViewById(R.id.nav_view);
-       View header = navigationView.getHeaderView(0);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
 
-       ImageView userPhoto = header.findViewById(R.id.nav_header_user_photo);
-       TextView userName = header.findViewById(R.id.nav_header_name);
-       profile = header.findViewById(R.id.nav_view_profile);
-       medicalFile = header.findViewById(R.id.nav_view_medical_file);
-       favourite = header.findViewById(R.id.nav_view_favourite);
-       healthCenters = header.findViewById(R.id.nav_view_health_centers);
-       doctor = header.findViewById(R.id.nav_view_doctor);
-       settings = header.findViewById(R.id.nav_view_settings);
-       about = header.findViewById(R.id.nav_view_about);
-       report = header.findViewById(R.id.nav_view_report);
-       logout = header.findViewById(R.id.nav_view_logout);
+        ImageView userPhoto = header.findViewById(R.id.nav_header_user_photo);
+        TextView userName = header.findViewById(R.id.nav_header_name);
+        profile = header.findViewById(R.id.nav_view_profile);
+        medicalFile = header.findViewById(R.id.nav_view_medical_file);
+        favourite = header.findViewById(R.id.nav_view_favourite);
+        healthCenters = header.findViewById(R.id.nav_view_health_centers);
+        doctor = header.findViewById(R.id.nav_view_doctor);
+        settings = header.findViewById(R.id.nav_view_settings);
+        about = header.findViewById(R.id.nav_view_about);
+        report = header.findViewById(R.id.nav_view_report);
+        logout = header.findViewById(R.id.nav_view_logout);
 
-       profile.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
-       medicalFile.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        medicalFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
+            }
+        });
 
-       favourite.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        favourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
-           }
-       });
-       healthCenters.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        healthCenters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
-       doctor.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        doctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
-       settings.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
-       about.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
-       report.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
-       logout.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-           }
-       });
+            }
+        });
 
-   }
+    }
 
-    private  void setPhotoAdapter(){
+    private void setPhotoAdapter() {
 
         //Temp Data
-        photos= new ArrayList();
+        photos = new ArrayList();
 
-        for(int i=0 ; i < 10 ; i++)
+        for (int i = 0; i < 10; i++)
             photos.add("");
 
-        photoAdapter =new PhotoAdapter(photos);
+        photoAdapter = new PhotoAdapter(photos);
         viewPager2.setAdapter(photoAdapter);
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -295,13 +300,11 @@ public class MainPageActivity extends AppCompatActivity {
         });
 
 
-
     }
 
 
-    private void setCurrentIem(int item ,int currentItem, long duration, int pagePxWidth ){
+    private void setCurrentIem(int item, int currentItem, long duration, int pagePxWidth) {
         Interpolator interpolator = new AccelerateDecelerateInterpolator();
-
 
 
         int pxToDrag = pagePxWidth * (item - currentItem);
@@ -310,118 +313,120 @@ public class MainPageActivity extends AppCompatActivity {
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int  currentValue = (int) valueAnimator.getAnimatedValue();
-                float currentPxToDrag = (float)(currentValue - previousValue[0]);
+                int currentValue = (int) valueAnimator.getAnimatedValue();
+                float currentPxToDrag = (float) (currentValue - previousValue[0]);
                 viewPager2.fakeDragBy(forward * currentPxToDrag);
                 previousValue[0] = currentValue;
             }
         });
 
-       animator.addListener(new Animator.AnimatorListener() {
-           @Override
-           public void onAnimationStart(Animator animation) {
-               viewPager2.beginFakeDrag();
-           }
-
-           @Override
-           public void onAnimationEnd(Animator animation) {
-               viewPager2.endFakeDrag();
-           }
-
-           @Override
-           public void onAnimationCancel(Animator animation) {
-
-           }
-
-           @Override
-           public void onAnimationRepeat(Animator animation) {
-
-           }
-       });
-       animator.setInterpolator(interpolator);
-       animator.setDuration(duration);
-        animator.start();
-
-    private Runnable sliderRunnable = new Runnable() {
-        @Override
-        public void run() {
-
-            if (photoAdapter.getItemCount()-1 == page) {
-                 forward = -1;
-            } else if (page == 0) {
-                forward = 1;
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                viewPager2.beginFakeDrag();
             }
 
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                viewPager2.endFakeDrag();
+            }
 
-            setCurrentIem(page-1,page,1000,viewPager2.getWidth());
-            sliderHandler.postDelayed(this, 4000);
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animator.setInterpolator(interpolator);
+        animator.setDuration(duration);
+        animator.start();
+    }
+
+        private Runnable sliderRunnable = new Runnable() {
+            @Override
+            public void run() {
+
+                if (photoAdapter.getItemCount() - 1 == page) {
+                    forward = -1;
+                } else if (page == 0) {
+                    forward = 1;
+                }
+
+
+                setCurrentIem(page - 1, page, 1000, viewPager2.getWidth());
+                sliderHandler.postDelayed(this, 4000);
+            }
+        };
+
+        @Override
+        protected void onPause () {
+            super.onPause();
+            sliderHandler.removeCallbacks(sliderRunnable);
+
         }
-    };
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        sliderHandler.removeCallbacks(sliderRunnable);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sliderHandler.postDelayed(sliderRunnable, 3000);
-    }
+        @Override
+        protected void onResume () {
+            super.onResume();
+            sliderHandler.postDelayed(sliderRunnable, 3000);
+        }
 
 
-    private void setSectorsAdapter(){
-        //Temp Data
-        sectors = new ArrayList();
+        private void setSectorsAdapter () {
+            //Temp Data
+            sectors = new ArrayList();
 
-        for(int i=0 ; i < 6 ; i++)
-            sectors.add(new Sector());
+            for (int i = 0; i < 6; i++)
+              //  sectors.add(new Sector());
 
-        sectorsAdapter =new SectorsAdapter(sectors);
-        specialtiesRecyclerView.setAdapter(sectorsAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainPageActivity.this,RecyclerView.HORIZONTAL,false);
-        specialtiesRecyclerView.setLayoutManager(linearLayoutManager);
+            sectorsAdapter = new SectorsAdapter(sectors);
+            specialtiesRecyclerView.setAdapter(sectorsAdapter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainPageActivity.this, RecyclerView.HORIZONTAL, false);
+            specialtiesRecyclerView.setLayoutManager(linearLayoutManager);
 
-    }
+        }
 
-    private void setTopsAdapter(){
-        doctors = new ArrayList<>();
-        for(int i=0 ; i < 6 ; i++)
-            doctors.add(new Doctor());
+        private void setTopsAdapter () {
+            doctors = new ArrayList<>();
+            for (int i = 0; i < 6; i++)
+                doctors.add(new Doctor());
 
-        topsAdapter =new TopsAdapter(doctors);
-        topRecyclerView.setAdapter(topsAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainPageActivity.this);
-        topRecyclerView.setLayoutManager(linearLayoutManager);
+            topsAdapter = new TopsAdapter(doctors);
+            topRecyclerView.setAdapter(topsAdapter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainPageActivity.this);
+            topRecyclerView.setLayoutManager(linearLayoutManager);
 
-    }
+        }
 
-    private void setHealthCentersAdapter(){
-
-
-       //Temp Data
-       fourHealthCenterObjectsList = new ArrayList<>();
-
-       for(int i=0 ; i < 4 ; i++) {
-
-           fourHealthCenterObjectsList.add(new FourHealthCenterObjects());
-       }
-
-       healthCentersAdapter =new HealthCentersAdapter(fourHealthCenterObjectsList);
-       centersViewPagers2.setAdapter(healthCentersAdapter);
-
-       centersViewPagers2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-           @Override
-           public void onPageSelected(int position) {
-               super.onPageSelected(position);
-
-           }
-
-       });
+        private void setHealthCentersAdapter () {
 
 
-   }
+            //Temp Data
+            fourHealthCenterObjectsList = new ArrayList<>();
+
+            for (int i = 0; i < 4; i++) {
+
+                fourHealthCenterObjectsList.add(new FourHealthCenterObjects());
+            }
+
+            healthCentersAdapter = new HealthCentersAdapter(fourHealthCenterObjectsList);
+            centersViewPagers2.setAdapter(healthCentersAdapter);
+
+            centersViewPagers2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+                @Override
+                public void onPageSelected(int position) {
+                    super.onPageSelected(position);
+
+                }
+
+            });
+
+
+        }
+
 
 }

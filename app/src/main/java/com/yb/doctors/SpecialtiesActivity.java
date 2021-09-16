@@ -37,7 +37,7 @@ public class SpecialtiesActivity extends AppCompatActivity {
         RecyclerViewMargin decoration = new RecyclerViewMargin(32, 3,this);
         recyclerView.addItemDecoration(decoration);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,3);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setLayoutManager(gridLayoutManager);*/
 
     }
 
