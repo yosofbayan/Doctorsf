@@ -78,13 +78,13 @@ public class Verification extends AppCompatActivity {
         verifyOTPBtn = findViewById(R.id.verlog);
         otpCode = findViewById(R.id.otpCodeEt) ;
         intent = getIntent();
-        verificationId = intent.getStringExtra(Login.VERIFICATION_ID) ;
         Toast.makeText(this, "" + verificationId, Toast.LENGTH_SHORT).show();
         number = intent.getStringExtra(Login.PHONE_NUMBER) ;
 
 
     }
     private void verifyCode(String code) {
+        verificationId = Login.VERIFICATION_ID ;
         // below line is used for getting getting
         // credentials from our verification id and code.
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
