@@ -30,14 +30,7 @@ import com.yb.doctors.model.Sector;
 import androidx.drawerlayout.widget.DrawerLayout;
 import java.util.ArrayList;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
+
 import com.google.firebase.storage.StorageReference;
 
 
@@ -351,8 +344,6 @@ public class MainPageActivity extends AppCompatActivity {
            @Override
            public void onPageSelected(int position) {
                super.onPageSelected(position);
-
-
 
            }
 
